@@ -35,12 +35,13 @@ public class IdwallFormatter extends StringFormatter {
     			 txtFormatted.append(" ");   			 
     		 });
     		 
-    		 Arrays.stream().forEach(word -> { 
+    		 
+    		 IntStream.range(0, txtFormatted.length()+1).forEach(i -> {    			 
     			 if(l.get() < text.length()) {
     				 txtFormatted.delete(l.get(),text.length());
     				 l.getAndAdd(40);    				 
-    			 }  			 
-    		 });    		 
+    			 }  
+    		 });  		 
     		 
     	} catch(Exception e) {
     		e.printStackTrace();
