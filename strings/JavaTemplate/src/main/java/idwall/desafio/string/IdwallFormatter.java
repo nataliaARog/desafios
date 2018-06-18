@@ -35,10 +35,11 @@ public class IdwallFormatter extends StringFormatter {
     			 txtFormatted.append(" ");   			 
     		 });
     		 
+    		 txtFormatted.delete(l.get(),txtFormatted.length());
     		 
-    		 IntStream.range(0, txtFormatted.length()).forEach(i -> {    			 
+    		 IntStream.range(0, txtFormatted.length()).forEach(i -> {   
     			 if(l.get() < txtFormatted.length()) {
-    				 txtFormatted.delete(l.get(),txtFormatted.length());
+    				 
     				 l.getAndAdd(40);    				 
     			 }  
     		 });  		 
