@@ -1,9 +1,22 @@
 package idwall.desafio.string;
 
+import java.text.CharacterIterator;
+import java.text.StringCharacterIterator;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.StringJoiner;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.IntStream;
+
 /**
  * Created by Rodrigo Catão Araujo on 06/02/2018.
  */
 public class IdwallFormatter extends StringFormatter {
+	
+	public IdwallFormatter() {
+		super();
+	}
 
     /**
      * Should format as described in the challenge
@@ -13,6 +26,27 @@ public class IdwallFormatter extends StringFormatter {
      */
     @Override
     public String format(String text) {
-        throw new UnsupportedOperationException();
-    }
+    	StringBuilder txtFormatted = new StringBuilder();    	
+    	AtomicInteger l = new AtomicInteger(41);
+    	    	
+    	try {
+    		 Arrays.stream(text.split(" ")).forEach(word -> { 
+    			 txtFormatted.append(word);
+    			 txtFormatted.append(" ");   			 
+    		 });
+    		 
+    		 Arrays.stream().forEach(word -> { 
+    			 if(l.get() < text.length()) {
+    				 txtFormatted.delete(l.get(),text.length());
+    				 l.getAndAdd(40);    				 
+    			 }  			 
+    		 });    		 
+    		 
+    	} catch(Exception e) {
+    		e.printStackTrace();
+    		throw new UnsupportedOperationException();
+    	}    	
+    	
+		return txtFormatted.toString();        
+    }    
 }
