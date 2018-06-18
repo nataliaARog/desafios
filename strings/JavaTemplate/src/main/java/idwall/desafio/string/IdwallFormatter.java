@@ -36,9 +36,9 @@ public class IdwallFormatter extends StringFormatter {
     		 });
     		 
     		 
-    		 IntStream.range(0, txtFormatted.length()+1).forEach(i -> {    			 
-    			 if(l.get() < text.length()) {
-    				 txtFormatted.delete(l.get(),text.length());
+    		 IntStream.range(0, txtFormatted.length()).forEach(i -> {    			 
+    			 if(l.get() < txtFormatted.length()) {
+    				 txtFormatted.delete(l.get(),txtFormatted.length());
     				 l.getAndAdd(40);    				 
     			 }  
     		 });  		 
